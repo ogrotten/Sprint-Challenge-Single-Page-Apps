@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import {Link} from "react-router-dom"
+
 import CharacterCard from "./CharacterCard";
 import SearchForm from "./SearchForm";
 
@@ -28,7 +30,7 @@ export default function CharacterList(props) {
 
 	return (
 		<section className="character-list">
-			<SearchForm props={props}/>
+			{/* <SearchForm props={props}/> */}
 			{/* <h2>TODO: `array.map()` over your state here!</h2> */}
 			{allchars.map(e => {
 				// clg("------",e.name)
