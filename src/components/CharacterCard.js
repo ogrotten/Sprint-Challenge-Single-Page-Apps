@@ -6,9 +6,9 @@ export default function CharacterCard(props) {
 	
 	return (
 		<div className="char-card">
-			<h2>{name}</h2>
+			{/* <h2></h2> */}
 			<div className="char-status">
-				status: <strong>{status}</strong>
+				<strong>{name}</strong> <em>({status})</em>
 			</div>
 		</div>
 	);
