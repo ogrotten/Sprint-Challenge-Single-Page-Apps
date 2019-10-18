@@ -8,22 +8,22 @@ function clg(...x) {
 export default function WelcomePage() {
 	const [oneguy, setGuy] = useState({});
 	
-	useEffect(() => {
-		let rnd = Math.floor(Math.random() * 493) // 493 = charcount
-		clg(`Welcome page random char: ${rnd} / 493`);
+	// useEffect(() => {
+	// 	let rnd = Math.floor(Math.random() * 493) // 493 = charcount
+	// 	clg(`Welcome page random char: ${rnd} / 493`);
 		
-		axios
-		.get(`https://rickandmortyapi.com/api/character/${rnd}`)
-			.then(response => {
-				clg(response.data);
-				setGuy(response.data);
-			})
-			.catch(error => {
-				console.error(error);
-			});
+	// 	axios
+	// 	.get(`https://rickandmortyapi.com/api/character/${rnd}`)
+	// 		.then(response => {
+	// 			clg(response.data);
+	// 			setGuy(response.data);
+	// 		})
+	// 		.catch(error => {
+	// 			console.error(error);
+	// 		});
 
-		//  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-	}, []);
+	// 	//  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+	// }, []);
 
 
 	return (
