@@ -1,3 +1,22 @@
+# Self-Study/Essay Questions
+# Self-Study/Essay Questions
+# Self-Study/Essay Questions
+
+Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
+
+- [ ]  Explain benefit(s) using `client-side routing`?
+
+> Answer:
+
+* Efficiency. It avoids the transaction of an entire page when only a few elements have been changed. 
+* Performance. Pages load as quickly as the client can process it. It's a proven fact that the user would rather see a completed page with loading animation than look at a blank browser
+
+# Self-Study/Essay Questions
+# Self-Study/Essay Questions
+# Self-Study/Essay Questions
+
+----
+
 # Sprint Challenge: Single Page Applications
 
 ## Rick & Morty Edition
