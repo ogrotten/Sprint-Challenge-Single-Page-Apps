@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom"
+import styled from "styled-components";
 
 import CharacterCard from "./CharacterCard";
 import SearchForm from "./SearchForm";
@@ -8,6 +8,15 @@ import SearchForm from "./SearchForm";
 function clg(...x) {
 	for (let exes of x) console.log(exes);
 }
+
+const CharSection = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	border: 4px solid #efefef;
+	max-width: 100%;
+	margin: 15px;
+	padding: 5px 15px;
+`;
 
 const api = "https://rickandmortyapi.com/api/character/";
 
@@ -29,14 +38,12 @@ export default function CharacterList(props) {
 	}, []);
 
 	return (
-		<section className="character-list">
+		<CharSection className="character-list">
 			{/* <SearchForm props={props}/> */}
 			{/* <h2>TODO: `array.map()` over your state here!</h2> */}
 			{allchars.map(e => {
-				// clg("------",e.name)
-				// return (<div>{e.name}</div>)
 				return <CharacterCard key={e.id} name={e.name} status={e.status} />;
 			})}
-		</section>
+		</CharSection>
 	);
 }

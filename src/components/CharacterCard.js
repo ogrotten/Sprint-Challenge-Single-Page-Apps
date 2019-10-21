@@ -9,7 +9,8 @@ export default function CharacterCard(props) {
 		color: navy;
 		display: block;
 		border: 2px solid silver;
-		width: 250px;
+		min-width: 175px;
+		max-width: 175px;
 		margin: 15px; 
 		padding: 5px 15px;
 	`;
