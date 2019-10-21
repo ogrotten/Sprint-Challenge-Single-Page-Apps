@@ -38,12 +38,14 @@ export default function CharacterList(props) {
 	}, []);
 
 	return (
-		<CharSection className="character-list">
-			{/* <SearchForm props={props}/> */}
-			{/* <h2>TODO: `array.map()` over your state here!</h2> */}
-			{allchars.map(e => {
-				return <CharacterCard key={e.id} name={e.name} status={e.status} />;
-			})}
-		</CharSection>
+		<>
+			<SearchForm props={props} allchars={allchars} />
+			<CharSection className="character-list">
+				{/* <h2>TODO: `array.map()` over your state here!</h2> */}
+				{allchars.map(e => {
+					return <CharacterCard key={e.id} name={e.name} status={e.status} />;
+				})}
+			</CharSection>
+		</>
 	);
 }
