@@ -30,6 +30,7 @@ export default function CharacterList(props) {
 			.get(api)
 			.then(response => {
 				setChars(response.data.results);
+				clg(response.data.info)
 			})
 			.catch(error => {
 				console.error(error);
@@ -39,11 +40,11 @@ export default function CharacterList(props) {
 
 	return (
 		<>
-			<SearchForm props={props} allchars={allchars} />
-			<CharSection className="character-list">
+			<CharSection><SearchForm props={props} allchars={allchars} /></CharSection>
+			<CharSection>
 				{/* <h2>TODO: `array.map()` over your state here!</h2> */}
 				{allchars.map(e => {
-					return <CharacterCard key={e.id} name={e.name} status={e.status} />;
+					return <CharacterCard key={e.id} name={e.name} status={e.status}/>;
 				})}
 			</CharSection>
 		</>
