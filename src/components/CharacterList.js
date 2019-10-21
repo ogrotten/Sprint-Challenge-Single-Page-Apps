@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import CharacterCard from "./CharacterCard";
 import SearchForm from "./SearchForm";
+import PrevNext from "./PrevNext";
 
 function clg(...x) {
 	for (let exes of x) console.log(exes);
@@ -23,14 +25,15 @@ const api = "https://rickandmortyapi.com/api/character/";
 export default function CharacterList(props) {
 	// TODO: Add useState to track data from useEffect
 	const [allchars, setChars] = useState([]);
-
+	const [pages, setPages] = useState([])
+	
 	useEffect(() => {
 		// TODO: Add API Request here - must run in `useEffect`
 		axios
-			.get(api)
-			.then(response => {
-				setChars(response.data.results);
-				clg(response.data.info)
+		.get(api)
+		.then(response => {
+			setChars(response.data.results);
+			setPages(response.data.info.prev, response.data.info.next )
 			})
 			.catch(error => {
 				console.error(error);
@@ -40,11 +43,14 @@ export default function CharacterList(props) {
 
 	return (
 		<>
-			<CharSection><SearchForm props={props} allchars={allchars} /></CharSection>
+			<PrevNext pages={pages}/>
+			<CharSection>
+				<SearchForm props={props} allchars={allchars} />
+			</CharSection>
 			<CharSection>
 				{/* <h2>TODO: `array.map()` over your state here!</h2> */}
 				{allchars.map(e => {
-					return <CharacterCard key={e.id} name={e.name} status={e.status}/>;
+					return <CharacterCard key={e.id} name={e.name} status={e.status} />;
 				})}
 			</CharSection>
 		</>
