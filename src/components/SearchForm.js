@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 import CharacterCard from "./CharacterCard";
 
 const SearchForm = props => {
-	const [term, setTerm] = useState(null);
+	const [term, setTerm] = useState("");
 
 	const doChange = e => {
 		setTerm(e.target.value);
 	};
 
-	const res = !term ? props.allchars : props.allchars.filter(e => e.name.toLowerCase().includes(term.toLowerCase()));
+	const res = !term ? "" : props.allchars.filter(e => e.name.toLowerCase().includes(term.toLowerCase()));
 
 	return (
 		<>
 			<input type="text" onChange={doChange} value={term} placeholder="Find" />
-			{res.map(e => {
+			{res ? res.map(e => {
 				return <CharacterCard key={e.id} name={e.name} status={e.status} />;
-			})}
+			}): ""}
 		</>
 	);
 };
